@@ -12,7 +12,6 @@ class Message extends Component {
         // On reset, put the message back to "Get Ready."
         if (currentWordIndex === 0 && prevProps.currentWordIndex !== currentWordIndex) {
             this.setState({ message: "Get Ready" });
-            console.log("From message: " + this.state.message);
         }
         // After the start but before either possible end, set the message to "In Progress."
         if (currentWordIndex < 61 && currentWordIndex > 0 && secondsSinceFirstClick < 60 && prevProps.currentWordIndex !== currentWordIndex) {
