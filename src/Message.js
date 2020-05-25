@@ -8,23 +8,22 @@ class Message extends Component {
         };
     }
     componentDidUpdate(prevProps, prevState) {
-        const { secondsSinceFirstClick, wordIndex } = this.props;
-        console.log("Seconds " + secondsSinceFirstClick);
-        // If the word index is zero message is Get Ready
-        // If the word index and the seconds are less than 61/60 message is in progress
-        // If the word index is less than or equal to 61 and the seconds are greater than 60 the message is time's up
-        // if the word index is greater than or equal to 61 and the seconds are less that or equal to 60 then the message is Done
-        if (wordIndex === 0 && prevProps.wordIndex !== wordIndex) {
+        const { secondsSinceFirstClick, currentWordIndex } = this.props;
+        // On reset, put the message back to "Get Ready."
+        if (currentWordIndex === 0 && prevProps.currentWordIndex !== currentWordIndex) {
             this.setState({ message: "Get Ready" });
             console.log("From message: " + this.state.message);
         }
-        if (wordIndex < 61 && wordIndex > 0 && secondsSinceFirstClick < 60 && prevProps.wordIndex !== wordIndex) {
+        // After the start but before either possible end, set the message to "In Progress."
+        if (currentWordIndex < 61 && currentWordIndex > 0 && secondsSinceFirstClick < 60 && prevProps.currentWordIndex !== currentWordIndex) {
             this.setState({ message: "In Progress" });
         }
-        if (wordIndex >= 61 && prevProps.wordIndex !== wordIndex) {
+        // If all the words have been underlined, set the message to "Done."
+        if (currentWordIndex >= 61 && prevProps.currentWordIndex !== currentWordIndex) {
             this.setState({ message: "Done" });
         }
-        if (secondsSinceFirstClick >= 60 && wordIndex < 61 && prevProps.secondsSinceFirstClick !== secondsSinceFirstClick) {
+        // If the time is up, set the message to "Time's up."
+        if (secondsSinceFirstClick >= 60 && currentWordIndex < 61 && prevProps.secondsSinceFirstClick !== secondsSinceFirstClick) {
             this.setState({ message: "Time's Up" });
         }
     }

@@ -12,7 +12,7 @@ class App extends React.Component {
             secondsSinceFirstClick: 0,
             timerInterval: null
         };
-        this.startTimer = this.startTimer.bind(this); 
+        this.startTimer = this.startTimer.bind(this);
         this.handleSpaceBarEvent = this.handleSpaceBarEvent.bind(this);
         this.timerInterval = null;
     }
@@ -46,28 +46,28 @@ class App extends React.Component {
         }
     }
     render() {
-        const {currentWordIndex, secondsSinceFirstClick} = this.state;
+        const { currentWordIndex, secondsSinceFirstClick } = this.state;
         return (
             <div className="App" onKeyDown={this.handleSpaceBarEvent} tabIndex="0"> {/*One thing I'd like to fix here. You have to click the screen before the spacebar will work. Also, this element doesn't fill the screen so you have to click inside the border (pic attached). I'd like to make it so you can click anywhere and bring it into focus.*/}
                 <div className="row" id="title">
                 </div>
                 <div className="row" id="title">
-                    <div className="col-11" id="title"><h1>Pig</h1></div>
+                    <div className="col-11"><h1>Pig</h1></div>
                 </div>
                 <div className="row">
                     <div className="col-9">
                         <table className="table" id="table-row" >
                             <tbody>
                                 <tr>
-                                    <td id="table-cells-top-left"></td>
-                                    <td className="align-middle" id="table-cells-top">0</td>
-                                    <td className="align-middle" id="table-cells-top">6</td>
-                                    <td className="align-middle" id="table-cells-top">12</td>
-                                    <td className="align-middle" id="table-cells-top">18</td>
-                                    <td className="align-middle" id="table-cells-top">24</td>
+                                    <td id="no-border-left-top-right"></td>
+                                    <td className="align-middle" id="no-border-left-top-right">0</td>
+                                    <td className="align-middle" id="no-border-left-top-right">6</td>
+                                    <td className="align-middle" id="no-border-left-top-right">12</td>
+                                    <td className="align-middle" id="no-border-left-top-right">18</td>
+                                    <td className="align-middle" id="no-border-left-top-right">24</td>
                                 </tr>
                                 <tr>
-                                    <td className="align-middle" id="table-cells-left">30</td>
+                                    <td className="align-middle" id="no-border-left-top-bottom">30</td>
                                     <InteractiveWord
                                         currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={0}
@@ -110,7 +110,7 @@ class App extends React.Component {
                                     />
                                 </tr>
                                 <tr>
-                                    <td className="align-middle" id="table-cells-left">35</td>
+                                    <td className="align-middle" id="no-border-left-top-bottom">35</td>
                                     <InteractiveWord
                                         currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={1}
@@ -153,7 +153,7 @@ class App extends React.Component {
                                     />
                                 </tr>
                                 <tr>
-                                    <td className="align-middle" id="table-cells-left">40</td>
+                                    <td className="align-middle" id="no-border-left-top-bottom">40</td>
                                     <InteractiveWord
                                         currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={2}
@@ -196,7 +196,7 @@ class App extends React.Component {
                                     />
                                 </tr>
                                 <tr>
-                                    <td className="align-middle" id="table-cells-left">45</td>
+                                    <td className="align-middle" id="no-border-left-top-bottom">45</td>
                                     <InteractiveWord
                                         currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={3}
@@ -239,7 +239,7 @@ class App extends React.Component {
                                     />
                                 </tr>
                                 <tr>
-                                    <td className="align-middle" id="table-cells-left">50</td>
+                                    <td className="align-middle" id="no-border-left-top-bottom">50</td>
                                     <InteractiveWord
                                         currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={4}
@@ -282,7 +282,7 @@ class App extends React.Component {
                                     />
                                 </tr>
                                 <tr>
-                                    <td className="align-middle" id="table-cells-left">55</td>
+                                    <td className="align-middle" id="no-border-left-top-bottom">55</td>
                                     <InteractiveWord
                                         currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={5}

@@ -2,6 +2,7 @@ import React from 'react';
 import img from './images/pig.jpg';
 import "./App.css";
 
+// This is not currently in use. When pictures are available this can go above the table to display a picture and a title.
 function Icon(props) {
     const { title } = props;
     return (

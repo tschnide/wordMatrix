@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import { getword } from "./words";
+import { getword } from "./PigWords";
 
 class InteractiveWord extends Component {
 
     render() {
-        const { currentWordIndex, wordToDisplayIndex,  verticalUnderlineStart, verticalUnderlineEnd, horizontalUnderlineStart, horizontalUnderlineEnd } = this.props;
+        const { currentWordIndex, wordToDisplayIndex, underlineMovingVerticallyAfter, underlineMovingVerticallyUntil, underlineMovingHorizontallyAt, underlineMovingHorizontallyUntil } = this.props;
 
-        if (currentWordIndex <= verticalUnderlineEnd) {
+        if (currentWordIndex <= underlineMovingVerticallyUntil) {
             return (
-                    <td>{currentWordIndex > verticalUnderlineStart && currentWordIndex <= verticalUnderlineEnd ? <h1><u>{getword(wordToDisplayIndex)}</u></h1> : <h1>{getword(wordToDisplayIndex)}</h1>}</td>
+                <td>{currentWordIndex > underlineMovingVerticallyAfter && currentWordIndex <= underlineMovingVerticallyUntil ? <h1><u>{getword(wordToDisplayIndex)}</u></h1> : <h1>{getword(wordToDisplayIndex)}</h1>}</td>
             );
         }
-        else if (currentWordIndex <= horizontalUnderlineEnd) {
+        else if (currentWordIndex <= underlineMovingHorizontallyUntil) {
             return (
-                    <td>{currentWordIndex >= horizontalUnderlineStart && currentWordIndex <= horizontalUnderlineEnd ? <h1><u>{getword(wordToDisplayIndex)}</u></h1> : <h1>{getword(wordToDisplayIndex)}</h1>}</td>
+                <td>{currentWordIndex >= underlineMovingHorizontallyAt && currentWordIndex <= underlineMovingHorizontallyUntil ? <h1><u>{getword(wordToDisplayIndex)}</u></h1> : <h1>{getword(wordToDisplayIndex)}</h1>}</td>
             );
         }
         else
-        return(
-            <td><h1><u>{getword(wordToDisplayIndex)}</u></h1></td>
-        );
+            return (
+                <td><h1><u>{getword(wordToDisplayIndex)}</u></h1></td>
+            );
     }
 }
 
