@@ -8,18 +8,17 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            wordIndex: 0,
-            secondsSinceFirstClick: 60,
-            interval: null
+            currentWordIndex: 0,
+            secondsSinceFirstClick: 0,
+            timerInterval: null
         };
-        this.startTimer = this.startTimer.bind(this);
+        this.startTimer = this.startTimer.bind(this); 
         this.handleSpaceBarEvent = this.handleSpaceBarEvent.bind(this);
-        this.interval = null;
+        this.timerInterval = null;
     }
 
     startTimer() {
-        // let secondsSinceFirstClick = this.state.secondsSinceFirstClick;
-        this.interval = setInterval(() => {
+        this.timerInterval = setInterval(() => {
             this.setState((state) => ({ secondsSinceFirstClick: state.secondsSinceFirstClick + 1 }));
         }, 1000);
     }
@@ -27,11 +26,11 @@ class App extends React.Component {
     handleSpaceBarEvent(event) {
         if (event.keyCode === 32) {
             if (this.state.secondsSinceFirstClick >= 60) {
-                this.setState({ wordIndex: 0, secondsSinceFirstClick: 0 });
-                clearInterval(this.interval);
+                this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
+                clearInterval(this.timerInterval);
             } else {
-                this.setState((state) => ({ wordIndex: state.wordIndex + 1 }));
-                if (this.state.wordIndex === 0) {
+                this.setState((state) => ({ currentWordIndex: state.currentWordIndex + 1 }));
+                if (this.state.currentWordIndex === 0) {
                     this.startTimer();
                 }
             }
@@ -39,20 +38,21 @@ class App extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.wordIndex !== this.state.wordIndex) {
-            if (this.state.wordIndex === 62) {
-                clearInterval(this.interval);
-                this.setState({ wordIndex: 0, secondsSinceFirstClick: 0 });
+        if (prevProps.currentWordIndex !== this.state.currentWordIndex) {
+            if (this.state.currentWordIndex === 62) {
+                clearInterval(this.timerInterval);
+                this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
             }
         }
     }
     render() {
+        const {currentWordIndex, secondsSinceFirstClick} = this.state;
         return (
-            <div className="App" onKeyDown={this.handleSpaceBarEvent} tabIndex="0"> {/*One thing I'd like to fix here. You have to click the screen before the spacebar will work.*/}
+            <div className="App" onKeyDown={this.handleSpaceBarEvent} tabIndex="0"> {/*One thing I'd like to fix here. You have to click the screen before the spacebar will work. Also, this element doesn't fill the screen so you have to click inside the border (pic attached). I'd like to make it so you can click anywhere and bring it into focus.*/}
                 <div className="row" id="title">
                 </div>
                 <div className="row" id="title">
-                <div className="col-11" id="title"><h1>Pig</h1></div>
+                    <div className="col-11" id="title"><h1>Pig</h1></div>
                 </div>
                 <div className="row">
                     <div className="col-9">
@@ -69,264 +69,263 @@ class App extends React.Component {
                                 <tr>
                                     <td className="align-middle" id="table-cells-left">30</td>
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={0}
-                                        verticalUnderlineStart={0}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={32}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={0}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={32}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={6}
-                                        verticalUnderlineStart={6}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={33}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={6}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={33}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={12}
-                                        verticalUnderlineStart={12}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={34}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={12}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={34}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={18}
-                                        verticalUnderlineStart={18}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={35}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={18}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={35}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={24}
-                                        verticalUnderlineStart={24}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={36}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={24}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={36}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                 </tr>
                                 <tr>
                                     <td className="align-middle" id="table-cells-left">35</td>
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={1}
-                                        verticalUnderlineStart={1}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={37}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={1}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={37}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={7}
-                                        verticalUnderlineStart={7}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={38}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={7}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={38}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={13}
-                                        verticalUnderlineStart={13}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={39}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={13}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={39}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={19}
-                                        verticalUnderlineStart={19}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={40}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={19}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={40}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={25}
-                                        verticalUnderlineStart={25}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={41}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={25}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={41}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                 </tr>
                                 <tr>
                                     <td className="align-middle" id="table-cells-left">40</td>
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={2}
-                                        verticalUnderlineStart={2}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={42}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={2}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={42}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={8}
-                                        verticalUnderlineStart={8}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={43}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={8}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={43}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={14}
-                                        verticalUnderlineStart={14}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={44}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={14}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={44}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={20}
-                                        verticalUnderlineStart={20}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={45}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={20}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={45}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={26}
-                                        verticalUnderlineStart={26}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={46}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={26}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={46}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                 </tr>
                                 <tr>
                                     <td className="align-middle" id="table-cells-left">45</td>
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={3}
-                                        verticalUnderlineStart={3}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={47}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={3}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={47}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={9}
-                                        verticalUnderlineStart={9}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={48}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={9}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={48}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={15}
-                                        verticalUnderlineStart={15}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={49}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={15}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={49}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={21}
-                                        verticalUnderlineStart={21}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={50}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={21}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={50}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={27}
-                                        verticalUnderlineStart={27}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={51}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={27}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={51}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                 </tr>
                                 <tr>
                                     <td className="align-middle" id="table-cells-left">50</td>
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={4}
-                                        verticalUnderlineStart={4}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={52}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={4}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={52}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={10}
-                                        verticalUnderlineStart={10}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={53}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={10}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={53}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={16}
-                                        verticalUnderlineStart={16}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={54}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={16}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={54}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={22}
-                                        verticalUnderlineStart={22}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={55}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={22}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={55}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={28}
-                                        verticalUnderlineStart={28}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={56}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={28}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={56}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                 </tr>
                                 <tr>
                                     <td className="align-middle" id="table-cells-left">55</td>
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={5}
-                                        verticalUnderlineStart={5}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={57}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={5}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={57}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={11}
-                                        verticalUnderlineStart={11}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={58}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={11}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={58}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={17}
-                                        verticalUnderlineStart={17}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={59}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={17}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={59}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={23}
-                                        verticalUnderlineStart={23}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={60}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={23}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={60}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                     <InteractiveWord
-                                        currentWordIndex={this.state.wordIndex}
+                                        currentWordIndex={currentWordIndex}
                                         wordToDisplayIndex={29}
-                                        verticalUnderlineStart={29}
-                                        verticalUnderlineEnd={30}
-                                        horizontalUnderlineStart={61}
-                                        horizontalUnderlineEnd={61}
+                                        underlineMovingVerticallyAfter={29}
+                                        underlineMovingVerticallyUntil={30}
+                                        underlineMovingHorizontallyAt={61}
+                                        underlineMovingHorizontallyUntil={61}
                                     />
                                 </tr>
                             </tbody>
                         </table>
-                        {/* <h1>{this.state.secondsSinceFirstClick}</h1> */}
                     </div>
                     <div className="col-3">
                         <table className="table-borderless">
@@ -337,8 +336,8 @@ class App extends React.Component {
                                 <tr>
                                     <td>
                                         <Message
-                                            secondsSinceFirstClick={this.state.secondsSinceFirstClick}
-                                            wordIndex={this.state.wordIndex}
+                                            secondsSinceFirstClick={secondsSinceFirstClick}
+                                            currentWordIndex={currentWordIndex}
                                         />
                                     </td>
                                 </tr>
