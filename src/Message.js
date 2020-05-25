@@ -28,7 +28,22 @@ class Message extends Component {
     }
     render() {
         return (
-            <h1>{this.state.message}</h1>
+            <div className="col-2">
+                <table className="table-borderless">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h1>{this.state.message}</h1>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
         );
     }
 }

@@ -3,39 +3,6 @@ body {
   overflow:hidden;
 }
 
-table {
-  table-layout: fixed;
-  width:70%;
-  margin-top: 20px;
-  margin-left: 3px;
-}
-
-td {
-  height: 75px;
-  text-align: center;
-}
-
 .App {
   text-align: center;
-}
-
-#title {
-  height: 75px;
-}
-
-#no-border-left-top-bottom {
-  border-left: 1px solid white;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-}
-#no-border-left-top-right {
-  border-left: 1px solid white;
-  border-top: 1px solid white;
-  border-right: 1px solid white;
-}
-
-.main-table, .main-td {
-  border: 2px solid black;
-  padding: 0;
-  margin: 0;
 }
