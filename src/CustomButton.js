@@ -1,5 +1,5 @@
 import React from 'react';
-import "./CustomButton.css";
+import "./Button.css";
 
 const Button = props => {
     const {label, onButtonClick} = props;

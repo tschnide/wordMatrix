@@ -75,7 +75,7 @@ class App extends Component {
     render() {
         const { title, currentWordIndex, currentLessonId, secondsSinceFirstClick } = this.state;
         return (
-            <div className="App" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
+            <div className="App full-height" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
                 <Title
                     title={title}
                 />
