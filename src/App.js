@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import InteractiveTable from "./InteractiveTable";
 import ButtonPanel from "./ButtonPanel";
 import Message from "./Message";
-import Icon from "./Icon";
+import Title from "./Title";
+import { getLessonName } from "./Lessons";
 import "./App.css";
 
 
@@ -11,21 +12,23 @@ class App extends Component {
         super(props);
         this.state = {
             currentWordIndex: 0,
-            secondsSinceFirstClick: 58,
+            secondsSinceFirstClick: 0,
             timerInterval: null,
-            title: "pig",
+            title: 'Pig',
+            currentLessonId: 0,
             buttonLabels: [
-                { id: 0, value: "Lesson 1", title: 'goat', },
-                { id: 1, value: "Lesson 2"},
-                { id: 2, value: "Lesson 3"},
-                { id: 3, value: "Lesson 4"},
-                { id: 4, value: "Lesson 5"},
-                { id: 5, value: "Lesson 6"},
-                { id: 6, value: "Lesson 7"},
-                { id: 7, value: "Lesson 8"},
-                { id: 8, value: "Lesson 9"},
-                { id: 9, value: "Lesson 10"},
-                { id: 10, value: "Lesson 11"}
+                { id: 0, value: getLessonName(0) },
+                { id: 1, value: getLessonName(1) },
+                { id: 0, value: getLessonName(0) },
+                { id: 1, value: getLessonName(1) },
+                { id: 0, value: getLessonName(0) },
+                { id: 1, value: getLessonName(1) },
+                { id: 0, value: getLessonName(0) },
+                { id: 1, value: getLessonName(1) },
+                { id: 0, value: getLessonName(0) },
+                { id: 1, value: getLessonName(1) },
+                { id: 0, value: getLessonName(0) },
+                { id: 1, value: getLessonName(1) }
             ]
         };
         this.startTimer = this.startTimer.bind(this);
@@ -53,8 +56,11 @@ class App extends Component {
         }
     }
 
-    handleButtonClick = label =>{        
-       console.log(label.value); 
+    handleButtonClick = label => {
+        const lessonName = this.state.buttonLabels[label.id].value;
+        const lessonId = label.id;
+        this.setState({ title: lessonName });
+        this.setState({ currentLessonId: lessonId });
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -67,18 +73,19 @@ class App extends Component {
     }
 
     render() {
-        const {title, currentWordIndex, secondsSinceFirstClick } = this.state;
+        const { title, currentWordIndex, currentLessonId, secondsSinceFirstClick } = this.state;
         return (
             <div className="App" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
-                <Icon
+                <Title
                     title={title}
                 />
                 <div className="row">
-                    <ButtonPanel 
+                    <ButtonPanel
                         buttonLabels={this.state.buttonLabels}
                         onButtonClick={this.handleButtonClick}
                     />
                     <InteractiveTable
+                        currentLessonId={currentLessonId}
                         currentWordIndex={currentWordIndex}
                         secondsSinceFirstClick={secondsSinceFirstClick}
                     />
