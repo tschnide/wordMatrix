@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getword } from "./PigWords";
+import { getword } from "./Lessons";
 
 class InteractiveWord extends Component {
 

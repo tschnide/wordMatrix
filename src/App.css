@@ -2,7 +2,15 @@
 body {
   overflow:hidden;
 }
+html, body{
+  height: 100%;
+}
 
 .App {
   text-align: center;
+}
+
+/* Fix Me this is to make the app take the full height of the screen. */
+#root, #root>div{
+  height: 100%;
 }
