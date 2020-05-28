@@ -19,16 +19,10 @@ class App extends Component {
             buttonLabels: [
                 { id: 0, value: getLessonName(0) },
                 { id: 1, value: getLessonName(1) },
-                { id: 0, value: getLessonName(0) },
-                { id: 1, value: getLessonName(1) },
-                { id: 0, value: getLessonName(0) },
-                { id: 1, value: getLessonName(1) },
-                { id: 0, value: getLessonName(0) },
-                { id: 1, value: getLessonName(1) },
-                { id: 0, value: getLessonName(0) },
-                { id: 1, value: getLessonName(1) },
-                { id: 0, value: getLessonName(0) },
-                { id: 1, value: getLessonName(1) }
+                { id: 2, value: getLessonName(2) },
+                { id: 3, value: getLessonName(3) },
+                { id: 4, value: getLessonName(4) },
+                { id: 5, value: getLessonName(5) }
             ]
         };
         this.startTimer = this.startTimer.bind(this);

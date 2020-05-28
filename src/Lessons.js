@@ -38,8 +38,8 @@ const lessons = [
     },
     {
         id: 1,
-        name:"Tub",
-        vocabulary:[
+        name: "Tub",
+        vocabulary: [
             "sun",
             "fun",
             "bun",
@@ -71,6 +71,150 @@ const lessons = [
             "puck",
             "muck"
         ]
+    },
+    {
+        id: 2,
+        name: "Green Review 1",
+        vocabulary: [
+            "car",
+            "cart",
+            "mart",
+            "carp",
+            "harp",
+            "sharp",
+            "port",
+            "fort",
+            "tort",
+            "torn",
+            "corn",
+            "scorn",
+            "irk",
+            "quirk",
+            "dirt",
+            "sir",
+            "fir",
+            "first",
+            "per",
+            "pert",
+            "perm",
+            "perk",
+            "jerk",
+            "clerk",
+            "furl",
+            "curl",
+            "hurl",
+            "turn",
+            "burn",
+            "burnt"
+        ]
+    },
+    {
+        id: 3,
+        name: "Green Challenge 1",
+        vocabulary: [
+            "morn",
+            "peel",
+            "burp",
+            "fold",
+            "gut",
+            "smart",
+            "far",
+            "rev",
+            "zone",
+            "fire",
+            "worn",
+            "thirst",
+            "fuse",
+            "low",
+            "yak",
+            "ark",
+            "orb",
+            "squirt",
+            "herd",
+            "team",
+            "sigh",
+            "hart",
+            "sob",
+            "forth",
+            "tort",
+            "ray",
+            "mart",
+            "quit",
+            "gain",
+            "burst"
+        ]
+    },
+    {
+        id: 4,
+        name: "Green Review 2",
+        vocabulary: [
+            "cell",
+            "dance",
+            "fence",
+            "cite",
+            "lace",
+            "place",
+            "gel",
+            "gem",
+            "hinge",
+            "rage",
+            "range",
+            "grange",
+            "knap",
+            "knot",
+            "knit",
+            "knife",
+            "knave",
+            "knead",
+            "wrap",
+            "wren",
+            "writ",
+            "wrote",
+            "wreak",
+            "wreath",
+            "wring",
+            "wrong",
+            "wroth",
+            "gnat",
+            "gnu",
+            "gnome"
+        ]
+    },
+    {
+        id: 5,
+        name: "Green Challenge 2",
+        vocabulary: [
+            "germ",
+            "force",
+            "gnarl",
+            "known",
+            "Wright",
+            "cinch",
+            "farce",
+            "dirge",
+            "merge",
+            "gnat",
+            "celt",
+            "scent",
+            "gorge",
+            "knur",
+            "urge",
+            "wretch",
+            "knight",
+            "wrench",
+            "knob",
+            "gnu",
+            "cyst",
+            "gym",
+            "surge",
+            "splurge",
+            "barge",
+            "wry",
+            "gee",
+            "verge",
+            "cede",
+            "scene"
+        ]
     }
 ];
 
@@ -78,6 +222,6 @@ export function getword(lessonId, wordIndex) {
     return lessons[lessonId].vocabulary[wordIndex];
 }
 
-export function getLessonName(lessonId){
+export function getLessonName(lessonId) {
     return lessons[lessonId].name;
 }
