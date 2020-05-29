@@ -55,6 +55,8 @@ class App extends Component {
         const lessonId = label.id;
         this.setState({ title: lessonName });
         this.setState({ currentLessonId: lessonId });
+        this.setState({ currentWordIndex: 0 });
+        clearInterval(this.timerInterval);
     }
 
     componentDidUpdate(prevProps, prevState) {
