@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import InteractiveTable from "./InteractiveTable";
+import { getLessonName } from './Lessons';
+import InteractiveSpace from "./InteractiveSpace";
 import ButtonPanel from "./ButtonPanel";
-import Message from "./Message";
 import Title from "./Title";
-import { getLessonName } from "./Lessons";
 import "./App.css";
 
 
@@ -14,7 +13,7 @@ class App extends Component {
             currentWordIndex: 0,
             secondsSinceFirstClick: 0,
             timerInterval: null,
-            title: 'Pig',
+            title: null,
             currentLessonId: 0,
             buttonLabels: [
                 { id: 0, value: getLessonName(0) },
@@ -23,7 +22,8 @@ class App extends Component {
                 { id: 3, value: getLessonName(3) },
                 { id: 4, value: getLessonName(4) },
                 { id: 5, value: getLessonName(5) }
-            ]
+            ],
+            currentButtonId: null
         };
         this.startTimer = this.startTimer.bind(this);
         this.handleSpaceBarEvent = this.handleSpaceBarEvent.bind(this);
@@ -56,6 +56,7 @@ class App extends Component {
         this.setState({ title: lessonName });
         this.setState({ currentLessonId: lessonId });
         this.setState({ currentWordIndex: 0 });
+        this.setState({ currentButtonId: lessonId });
         clearInterval(this.timerInterval);
     }
 
@@ -69,25 +70,26 @@ class App extends Component {
     }
 
     render() {
-        const { title, currentWordIndex, currentLessonId, secondsSinceFirstClick } = this.state;
+        const { title, currentWordIndex, currentLessonId, secondsSinceFirstClick, currentButtonId } = this.state;
         return (
             <div className="App full-height" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
                 <Title
                     title={title}
                 />
-                <div className="row">
-                    <ButtonPanel
-                        buttonLabels={this.state.buttonLabels}
-                        onButtonClick={this.handleButtonClick}
-                    />
-                    <InteractiveTable
-                        currentLessonId={currentLessonId}
-                        currentWordIndex={currentWordIndex}
-                        secondsSinceFirstClick={secondsSinceFirstClick}
-                    />
-                    <Message
-                        secondsSinceFirstClick={secondsSinceFirstClick}
-                        currentWordIndex={currentWordIndex} />
+                <div className="container-fluid">
+                    <div className="row" id="MainRow">
+                        <ButtonPanel
+                            buttonLabels={this.state.buttonLabels}
+                            onButtonClick={this.handleButtonClick}
+                        />
+                        <InteractiveSpace
+                            currentButtonId={currentButtonId}
+                            currentLessonId={currentLessonId}
+                            currentWordIndex={currentWordIndex}
+                            secondsSinceFirstClick={secondsSinceFirstClick}
+                            title={title}
+                        />
+                    </div>
                 </div>
             </div>
         );

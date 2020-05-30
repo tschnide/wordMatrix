@@ -6,7 +6,7 @@ const ButtonPanel = (props) => {
     const { buttonLabels, onButtonClick } = props;
     console.log(buttonLabels);
     return (
-        <div className="col-2">
+        <div className="col-2" id="button-panel">
             {buttonLabels.map(label => (
                 <CustomButton
                     key={label.id}

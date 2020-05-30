@@ -28,7 +28,7 @@ class Message extends Component {
     }
     render() {
         return (
-            <div className="col-2">
+            <div className="col-2" id="message">
                 <table className="table-borderless">
                     <tbody>
                         <tr>

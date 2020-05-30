@@ -6,7 +6,7 @@ import InteractiveWord from "./InteractiveWord";
 const InteractiveTable = props => {
     const { currentWordIndex, currentLessonId } = props;
     return (
-        <div className="col-7">
+        <div className="col-9" id="interactive-table">
             <table className="table" id="table-row" >
                 <tbody>
                     <tr>
