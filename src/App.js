@@ -21,7 +21,7 @@ class App extends Component {
                 { id: 2, value: getLessonName(2) },
                 { id: 3, value: getLessonName(3) },
                 { id: 4, value: getLessonName(4) },
-                { id: 5, value: getLessonName(5) }
+                { id: 5, value: getLessonName(5) },
             ],
             currentButtonId: null
         };
@@ -73,11 +73,12 @@ class App extends Component {
         const { title, currentWordIndex, currentLessonId, secondsSinceFirstClick, currentButtonId } = this.state;
         return (
             <div className="App full-height" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
-                <Title
+
+                <div className="container-fluid h-100">
+                    {/* <Title
                     title={title}
-                />
-                <div className="container-fluid">
-                    <div className="row" id="MainRow">
+                /> */}
+                    <div className="row align-items-center h-100">
                         <ButtonPanel
                             buttonLabels={this.state.buttonLabels}
                             onButtonClick={this.handleButtonClick}
@@ -91,7 +92,7 @@ class App extends Component {
                         />
                     </div>
                 </div>
-            </div>
+            </div >
         );
     }
 }
