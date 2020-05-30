@@ -1,9 +1,9 @@
 import React from 'react';
-import "./InteractiveTable.css";
+import "./VocabularyTable.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import InteractiveWord from "./InteractiveWord";
+import VocabularyWord from "./VocabularyWord";
 
-const InteractiveTable = props => {
+const VocabularyTable = props => {
     const { currentWordIndex, currentLessonId } = props;
     return (
         <div className="col-9" id="interactive-table">
@@ -19,7 +19,7 @@ const InteractiveTable = props => {
                     </tr>
                     <tr>
                         <td className="align-middle" id="no-border-left-top-bottom">30</td>
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={0}
@@ -28,7 +28,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={32}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={6}
@@ -37,7 +37,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={33}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={12}
@@ -46,7 +46,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={34}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={18}
@@ -55,7 +55,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={35}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={24}
@@ -67,7 +67,7 @@ const InteractiveTable = props => {
                     </tr>
                     <tr>
                         <td className="align-middle" id="no-border-left-top-bottom">35</td>
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={1}
@@ -76,7 +76,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={37}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={7}
@@ -85,7 +85,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={38}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={13}
@@ -94,7 +94,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={39}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={19}
@@ -103,7 +103,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={40}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={25}
@@ -115,7 +115,7 @@ const InteractiveTable = props => {
                     </tr>
                     <tr>
                         <td className="align-middle" id="no-border-left-top-bottom">40</td>
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={2}
@@ -124,7 +124,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={42}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={8}
@@ -133,7 +133,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={43}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={14}
@@ -142,7 +142,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={44}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={20}
@@ -151,7 +151,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={45}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={26}
@@ -163,7 +163,7 @@ const InteractiveTable = props => {
                     </tr>
                     <tr>
                         <td className="align-middle" id="no-border-left-top-bottom">45</td>
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={3}
@@ -172,7 +172,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={47}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={9}
@@ -181,7 +181,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={48}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={15}
@@ -190,7 +190,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={49}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={21}
@@ -199,7 +199,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={50}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={27}
@@ -211,7 +211,7 @@ const InteractiveTable = props => {
                     </tr>
                     <tr>
                         <td className="align-middle" id="no-border-left-top-bottom">50</td>
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={4}
@@ -220,7 +220,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={52}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={10}
@@ -229,7 +229,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={53}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={16}
@@ -238,7 +238,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={54}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={22}
@@ -247,7 +247,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={55}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={28}
@@ -259,7 +259,7 @@ const InteractiveTable = props => {
                     </tr>
                     <tr>
                         <td className="align-middle" id="no-border-left-top-bottom">55</td>
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={5}
@@ -268,7 +268,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={57}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={11}
@@ -277,7 +277,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={58}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={17}
@@ -286,7 +286,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={59}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={23}
@@ -295,7 +295,7 @@ const InteractiveTable = props => {
                             underlineMovingHorizontallyAt={60}
                             underlineMovingHorizontallyUntil={61}
                         />
-                        <InteractiveWord
+                        <VocabularyWord
                             currentWordIndex={currentWordIndex}
                             currentLessonId={currentLessonId}
                             wordToDisplayIndex={29}
@@ -311,4 +311,4 @@ const InteractiveTable = props => {
     );
 }
 
-export default InteractiveTable;
+export default VocabularyTable;

@@ -1,7 +1,7 @@
 import React from 'react';
 import "./App.css";
 
-const Icon = props => {
+const LessonTitle = props => {
     const { title } = props;
     return (
         <div className="container">
@@ -14,4 +14,4 @@ const Icon = props => {
     )
 }
 
-export default Icon;
+export default LessonTitle;

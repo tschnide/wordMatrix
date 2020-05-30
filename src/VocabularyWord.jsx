@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { getword } from "./Lessons";
+import { getword } from "./LessonService";
+import "./VocabularyWord.css";
 
-class InteractiveWord extends Component {
+class VocabularyWord extends Component {
 
     render() {
         const { currentLessonId, currentWordIndex, wordToDisplayIndex, underlineMovingVerticallyAfter, underlineMovingVerticallyUntil, underlineMovingHorizontallyAt, underlineMovingHorizontallyUntil } = this.props;
@@ -23,4 +24,4 @@ class InteractiveWord extends Component {
     }
 }
 
-export default InteractiveWord;
+export default VocabularyWord;

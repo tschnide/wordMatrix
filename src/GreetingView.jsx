@@ -1,7 +1,7 @@
 import React from 'react';
-import './WelcomePanel.css';
+import './GreetingView.css';
 
-const WelcomePanel = () => {
+const GreetingView = () => {
     return (
         <div>
             <h1>Welcome!</h1>
@@ -22,4 +22,4 @@ const WelcomePanel = () => {
     );
 }
 
-export default WelcomePanel;
+export default GreetingView;

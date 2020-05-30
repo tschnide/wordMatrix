@@ -1,14 +1,14 @@
 import React from 'react';
-import CustomButton from './CustomButton';
-import "./Button.css";
+import LessonButton from './LessonButton';
+import "./LessonButton.css";
 
-const ButtonPanel = (props) => {
+const LessonButtonStack = (props) => {
     const { buttonLabels, onButtonClick } = props;
     console.log(buttonLabels);
     return (
         <div className="col-2" id="button-panel">
             {buttonLabels.map(label => (
-                <CustomButton
+                <LessonButton
                     key={label.id}
                     label={label}
                     onButtonClick={onButtonClick}
@@ -18,4 +18,4 @@ const ButtonPanel = (props) => {
     );
 }
 
-export default ButtonPanel;
+export default LessonButtonStack;

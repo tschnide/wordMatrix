@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import WelcomePanel from './WelcomePanel';
-import InteractiveTable from './InteractiveTable';
-import Message from "./Message";
-import Title from "./Title";
+import GreetingView from './GreetingView';
+import VocabularyTable from './VocabularyTable';
+import StatusMessage from "./StatusMessage";
 
-class InteractiveSpace extends Component {
+class MediaDisplaySpace extends Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -13,21 +12,20 @@ class InteractiveSpace extends Component {
         const { title, currentLessonId, currentWordIndex, secondsSinceFirstClick, currentButtonId } = this.props;
         if (currentButtonId === null) {
             return (
-                // <div className="row justify-content-center" id="welcome-panel">
                 <div className="col" id="welcome-panel">
-                    <WelcomePanel />
+                    <GreetingView />
                 </div>
             );
         } else {
             return (
                 <div className="col">
                     < div className="row">
-                        <InteractiveTable
+                        <VocabularyTable
                             currentLessonId={currentLessonId}
                             currentWordIndex={currentWordIndex}
                             secondsSinceFirstClick={secondsSinceFirstClick}
                         />
-                        <Message
+                        <StatusMessage
                             currentWordIndex={currentWordIndex}
                             secondsSinceFirstClick={secondsSinceFirstClick}
                         />
@@ -38,4 +36,4 @@ class InteractiveSpace extends Component {
     }
 }
 
-export default InteractiveSpace;
+export default MediaDisplaySpace;
