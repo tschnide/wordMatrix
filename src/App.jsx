@@ -4,7 +4,7 @@ import MediaDisplaySpace from "./MediaDisplaySpace";
 import LessonButtonStack from "./LessonButtonStack";
 import LessonTitle from "./LessonTitle";
 import "./App.css";
-
+import audioFilePath from "./sounds/completionBell.wav";
 
 class App extends Component {
     constructor(props) {
@@ -28,26 +28,17 @@ class App extends Component {
         this.startTimer = this.startTimer.bind(this);
         this.handleSpaceBarEvent = this.handleSpaceBarEvent.bind(this);
         this.timerInterval = null;
+        this.audioRef = React.createRef();
+    }
+
+    ringBell() {
+        this.audioRef.current.play();
     }
 
     startTimer() {
         this.timerInterval = setInterval(() => {
             this.setState((state) => ({ secondsSinceFirstClick: state.secondsSinceFirstClick + 1 }));
         }, 1000);
-    }
-
-    handleSpaceBarEvent(event) {
-        if (event.keyCode === 32) {
-            if (this.state.secondsSinceFirstClick >= 60) {
-                this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
-                clearInterval(this.timerInterval);
-            } else {
-                this.setState((state) => ({ currentWordIndex: state.currentWordIndex + 1 }));
-                if (this.state.currentWordIndex === 0) {
-                    this.startTimer();
-                }
-            }
-        }
     }
 
     handleButtonClick = label => {
@@ -60,6 +51,19 @@ class App extends Component {
         clearInterval(this.timerInterval);
     }
 
+    handleSpaceBarEvent(event) {
+        if (event.keyCode === 32) {
+            if (this.state.secondsSinceFirstClick >= 60) {
+                this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
+            } else {
+                this.setState((state) => ({ currentWordIndex: state.currentWordIndex + 1 }));
+                if (this.state.currentWordIndex === 0) {
+                    this.startTimer();
+                }
+            }
+        }
+    }
+
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.currentWordIndex !== this.state.currentWordIndex) {
             if (this.state.currentWordIndex === 62) {
@@ -67,15 +71,18 @@ class App extends Component {
                 this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
             }
         }
+        if (this.state.secondsSinceFirstClick >= 60) {
+            this.ringBell();
+            clearInterval(this.timerInterval);
+        }
     }
 
     render() {
         const { title, currentWordIndex, currentLessonId, secondsSinceFirstClick, currentButtonId } = this.state;
         return (
             <div className="App full-height" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
-
                 <div className="container-fluid h-100">
-                   <LessonTitle
+                    <LessonTitle
                         title={title}
                     />
                     <div className="row h-100">
@@ -90,6 +97,7 @@ class App extends Component {
                             secondsSinceFirstClick={secondsSinceFirstClick}
                             title={title}
                         />
+                        <audio ref={this.audioRef} src={audioFilePath} autoPlay />
                     </div>
                 </div>
             </div >
