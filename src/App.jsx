@@ -3,8 +3,8 @@ import { getLessonName } from './LessonService';
 import MediaDisplaySpace from "./MediaDisplaySpace";
 import LessonButtonStack from "./LessonButtonStack";
 import LessonTitle from "./LessonTitle";
-import "./App.css";
 import audioFilePath from "./sounds/completionBell.wav";
+import "./App.css";
 
 class App extends Component {
     constructor(props) {
