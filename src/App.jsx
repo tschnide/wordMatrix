@@ -31,9 +31,9 @@ class App extends Component {
         this.audioRef = React.createRef();
     }
 
-    ringBell() {
-        this.audioRef.current.play();
-    }
+    // ringBell() {
+    //     this.audioRef.current.play();
+    // }
 
     startTimer() {
         this.timerInterval = setInterval(() => {
@@ -71,38 +71,38 @@ class App extends Component {
                 this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
             }
         }
-        if (this.state.secondsSinceFirstClick >= 60) {
-            this.ringBell();
-            clearInterval(this.timerInterval);
-        }
-    }
+        // if (this.state.secondsSinceFirstClick >= 60) {
+        //     this.ringBell();
+        //     clearInterval(this.timerInterval);
+    // }
+}
 
-    render() {
-        const { title, currentWordIndex, currentLessonId, secondsSinceFirstClick, currentButtonId } = this.state;
-        return (
-            <div className="App full-height" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
-                <div className="container-fluid h-100">
-                    <LessonTitle
+render() {
+    const { title, currentWordIndex, currentLessonId, secondsSinceFirstClick, currentButtonId } = this.state;
+    return (
+        <div className="App full-height" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
+            <div className="container-fluid h-100">
+                <LessonTitle
+                    title={title}
+                />
+                <div className="row h-100">
+                    <LessonButtonStack
+                        buttonLabels={this.state.buttonLabels}
+                        onButtonClick={this.handleButtonClick}
+                    />
+                    <MediaDisplaySpace
+                        currentButtonId={currentButtonId}
+                        currentLessonId={currentLessonId}
+                        currentWordIndex={currentWordIndex}
+                        secondsSinceFirstClick={secondsSinceFirstClick}
                         title={title}
                     />
-                    <div className="row h-100">
-                        <LessonButtonStack
-                            buttonLabels={this.state.buttonLabels}
-                            onButtonClick={this.handleButtonClick}
-                        />
-                        <MediaDisplaySpace
-                            currentButtonId={currentButtonId}
-                            currentLessonId={currentLessonId}
-                            currentWordIndex={currentWordIndex}
-                            secondsSinceFirstClick={secondsSinceFirstClick}
-                            title={title}
-                        />
-                        <audio ref={this.audioRef} src={audioFilePath} autoPlay />
-                    </div>
+                    {/* <audio ref={this.audioRef} src={audioFilePath} autoPlay /> */}
                 </div>
-            </div >
-        );
-    }
+            </div>
+        </div >
+    );
+}
 }
 
 export default App; 
