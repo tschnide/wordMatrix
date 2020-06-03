@@ -22,6 +22,20 @@ class App extends Component {
                 { id: 3, value: getLessonName(3) },
                 { id: 4, value: getLessonName(4) },
                 { id: 5, value: getLessonName(5) },
+                { id: 6, value: getLessonName(6) },
+                { id: 7, value: getLessonName(7) },
+                { id: 8, value: getLessonName(8) },
+                { id: 9, value: getLessonName(9) },
+                { id: 10, value: getLessonName(10) },
+                { id: 11, value: getLessonName(11) },
+                { id: 12, value: getLessonName(12) },
+                { id: 13, value: getLessonName(13) },
+                { id: 14, value: getLessonName(14) },
+                { id: 15, value: getLessonName(15) },
+                { id: 16, value: getLessonName(16) },
+                { id: 17, value: getLessonName(17) },
+                { id: 18, value: getLessonName(18) },
+                { id: 19, value: getLessonName(19) }
             ],
             currentButtonId: null
         };
