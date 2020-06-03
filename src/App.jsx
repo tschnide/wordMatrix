@@ -31,11 +31,7 @@ class App extends Component {
                 { id: 12, value: getLessonName(12) },
                 { id: 13, value: getLessonName(13) },
                 { id: 14, value: getLessonName(14) },
-                { id: 15, value: getLessonName(15) },
-                { id: 16, value: getLessonName(16) },
-                { id: 17, value: getLessonName(17) },
-                { id: 18, value: getLessonName(18) },
-                { id: 19, value: getLessonName(19) }
+                { id: 15, value: getLessonName(15) }
             ],
             currentButtonId: null
         };
@@ -88,35 +84,37 @@ class App extends Component {
         // if (this.state.secondsSinceFirstClick >= 60) {
         //     this.ringBell();
         //     clearInterval(this.timerInterval);
-    // }
-}
+        // }
+    }
 
-render() {
-    const { title, currentWordIndex, currentLessonId, secondsSinceFirstClick, currentButtonId } = this.state;
-    return (
-        <div className="App full-height" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
-            <div className="container-fluid h-100">
-                <LessonTitle
-                    title={title}
-                />
-                <div className="row h-100">
-                    <LessonButtonStack
-                        buttonLabels={this.state.buttonLabels}
-                        onButtonClick={this.handleButtonClick}
-                    />
-                    <MediaDisplaySpace
-                        currentButtonId={currentButtonId}
-                        currentLessonId={currentLessonId}
-                        currentWordIndex={currentWordIndex}
-                        secondsSinceFirstClick={secondsSinceFirstClick}
-                        title={title}
-                    />
-                    {/* <audio ref={this.audioRef} src={audioFilePath} autoPlay /> */}
+    render() {
+        const { title, currentWordIndex, currentLessonId, secondsSinceFirstClick, currentButtonId } = this.state;
+        return (
+            <div className="App full-height" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
+                <div className="container-fluid h-100">
+                    <div className="row h-100 align-items-center">
+                        <LessonButtonStack
+                            buttonLabels={this.state.buttonLabels}
+                            onButtonClick={this.handleButtonClick}
+                        />
+                        <div className="col">
+                            <LessonTitle
+                                title={title}
+                            />
+                            <MediaDisplaySpace
+                                currentButtonId={currentButtonId}
+                                currentLessonId={currentLessonId}
+                                currentWordIndex={currentWordIndex}
+                                secondsSinceFirstClick={secondsSinceFirstClick}
+                                title={title}
+                            />
+                            {/* <audio ref={this.audioRef} src={audioFilePath} autoPlay /> */}
+                    </div>
+                    </div>
                 </div>
-            </div>
-        </div >
-    );
-}
+            </div >
+        );
+    }
 }
 
 export default App; 

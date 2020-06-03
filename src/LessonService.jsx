@@ -2,7 +2,8 @@
 const lessons = [
     {
         id: 0,
-        name: "Pig",
+        name: "Blue Exercise 7",
+        friendlyName: "Pig",
         vocabulary: [
             "fig",
             "big",
@@ -38,7 +39,8 @@ const lessons = [
     },
     {
         id: 1,
-        name: "Tub",
+        name: "Blue Exercise 10",
+        friendlyName: "Tub",
         vocabulary: [
             "sun",
             "fun",
@@ -76,6 +78,7 @@ const lessons = [
     {
         id: 2,
         name: "Blue Exercise 13",
+        friendlyName: "Blue Challenge 1",
         vocabulary: [
             "lab",
             "fed",
@@ -112,6 +115,7 @@ const lessons = [
     {
         id: 3,
         name: "Blue Exercise 15",
+        friendlyName: "ship",
         vocabulary: [
             "sham",
             "shack",
@@ -122,6 +126,7 @@ const lessons = [
             "shock",
             "shot",
             "shod",
+            "shop",
             "ship",
             "shin",
             "shut",
@@ -147,6 +152,7 @@ const lessons = [
     {
         id: 4,
         name: "Blue Exercise 16",
+        friendlyName: "chick patch bench",
         vocabulary: [
             "chat",
             "chad",
@@ -176,12 +182,14 @@ const lessons = [
             "bunch",
             "punch",
             "pinch",
-            "inch"
+            "inch",
+            "finch"
         ]
     },
     {
         id: 5,
         name: "Blue Exercise 17",
+        friendlyName: "thumb that whip",
         vocabulary: [
             "thin",
             "thick",
@@ -218,6 +226,7 @@ const lessons = [
     {
         id: 6,
         name: "Blue Exercise 18",
+        friendlyName: "ring",
         vocabulary: [
             "rang",
             "bang",
@@ -254,6 +263,7 @@ const lessons = [
     {
         id: 7,
         name: "Blue Exercise 19",
+        friendlyName: "ship chick thumb whip ring",
         vocabulary: [
             "shop",
             "shod",
@@ -290,6 +300,7 @@ const lessons = [
     {
         id: 8,
         name: "Blue Exercise 27",
+        friendlyName: "hand vest belt lamp gift",
         vocabulary: [
             "sand",
             "pant",
@@ -326,6 +337,7 @@ const lessons = [
     {
         id: 9,
         name: "Green Exercise 7",
+        friendlyName: "cake kite rope mule lute",
         vocabulary: [
           "fake",
           "gale ",
@@ -361,7 +373,8 @@ const lessons = [
     },
   {
         id: 10,
-        name: "Green exercise 22",
+        name: "Green Exercise 22",
+        friendlyName: "jar fork bird fern curl",
         vocabulary: [
             "car",
             "cart",
@@ -397,7 +410,8 @@ const lessons = [
     },
     {
         id: 11,
-        name: "Green exercise 24",
+        name: "Green Exercise 24",
+        friendlyName: "Green Challenge 3",
         vocabulary: [
             "morn",
             "peel",
@@ -433,7 +447,8 @@ const lessons = [
     },
     {
         id: 12, 
-        name: "Green exercise 29",
+        name: "Green Exercise 29",
+        friendlyName: "cent gem knife wrist gnome",
         vocabulary: [
             "cell",
             "dance",
@@ -469,7 +484,8 @@ const lessons = [
     },
     {
         id: 13,
-        name: "Green Challenge 2",
+        name: "Green Exercise 31",
+        friendlyName: "Green Challenge 4",
         vocabulary: [
             "germ",
             "force",
@@ -506,6 +522,7 @@ const lessons = [
     {
         id: 14,
         name: "Green Exercise 38",
+        friendlyName: "ball cow coing boot book",
         vocabulary: [
           "wall ",
           "gall",
@@ -542,6 +559,7 @@ const lessons = [
     {
         id: 15,
         name: "Green Exercise 40",
+        friendlyName: "Green Challenge 5",
         vocabulary: [
            "crook",
            "shave",
