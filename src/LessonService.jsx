@@ -577,7 +577,7 @@ const lessons = [
            "wren",
            "known",
            "screech",
-           "valut",
+           "vault",
            "flaunt",
            "scrawl",
            "twerp",
