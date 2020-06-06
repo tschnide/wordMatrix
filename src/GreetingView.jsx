@@ -4,7 +4,7 @@ import './GreetingView.css';
 const GreetingView = () => {
     return (
         <div>
-            <h1>Welcome!</h1>
+            <h1>Welcome! (Staging)</h1>
             <p></p>
             <p>To begin:</p>
             <ol>
