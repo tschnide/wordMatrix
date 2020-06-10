@@ -15,7 +15,7 @@ class VocabularyTable extends Component {
             leftVerticalScoreingNumbers: this.numberOfColumns,
             cycle: 0,
         };
-        this.underline = {textDecorationLine: 'underline'}
+        this.underline = { textDecorationLine: 'underline' }
     }
 
     render() {
@@ -34,12 +34,13 @@ class VocabularyTable extends Component {
                             <td className="align-middle" id="no-border-left-top-right">{this.state.numberOfRows * 4}</td>
                         </tr>
                         {
-                            this.lesson.vocabulary.map((rows, index) => (
-                                <tr key={index}>
-                                    <td className="align-middle" id="no-border-left-top-bottom">{this.lesson.vocabulary.length * rows.row.length + rows.row.length * index}</td>
+                            this.lesson.vocabulary.map((rows, rowIndex) => (
+                                <tr key={rowIndex}>
+                                    <td className="align-middle" id="no-border-left-top-bottom">{this.lesson.vocabulary.length * rows.row.length + rows.row.length * rowIndex}</td>
                                     {rows.row.map((word, index) => (
-                                        <td key={rows.index + index}
-                                        style={this.underline}>{word.value}</td>
+                                        index + rowIndex * rows.row.length < currentWordIndex
+                                            ? <td key={index + rowIndex * rows.row.length} style={this.underline}><h1>{word.value}</h1></td>
+                                            : <td key={index + rowIndex * rows.row.length}><h1>{word.value}</h1></td>
                                     ))}
 
                                 </tr>
