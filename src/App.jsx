@@ -63,7 +63,8 @@ class App extends Component {
 
     handleSpaceBarEvent(event) {
         if (event.keyCode === 32) {
-            if (this.state.secondsSinceFirstClick >= 60) {
+            if (this.state.secondsSinceFirstClick >= 63) {
+                console.log("current word index: " + this.state.currentWordIndex)
                 this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
             } else {
                 this.setState((state) => ({ currentWordIndex: state.currentWordIndex + 1 }));
@@ -76,7 +77,7 @@ class App extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.currentWordIndex !== this.state.currentWordIndex) {
-            if (this.state.currentWordIndex === 62) {
+            if (this.state.currentWordIndex === 63) {
                 clearInterval(this.timerInterval);
                 this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
             }
@@ -117,4 +118,4 @@ class App extends Component {
     }
 }
 
-export default App; 
+export default App;
