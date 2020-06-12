@@ -63,8 +63,7 @@ class App extends Component {
 
     handleSpaceBarEvent(event) {
         if (event.keyCode === 32) {
-            if (this.state.secondsSinceFirstClick >= 63) {
-                console.log("current word index: " + this.state.currentWordIndex)
+            if (this.state.secondsSinceFirstClick >= 62) {
                 this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
             } else {
                 this.setState((state) => ({ currentWordIndex: state.currentWordIndex + 1 }));

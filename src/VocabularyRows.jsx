@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getLesson } from "./LessonService";
+import './VocabularyRows.css'
 
 class VocabularyRows extends Component {
     constructor(props) {
@@ -12,7 +13,6 @@ class VocabularyRows extends Component {
             leftVerticalScoreingNumbers: this.numberOfColumns,
             cycle: 0,
         }
-        this.underline = { textDecorationLine: 'underline', textDecorationLine: '10%' }
     }
     render() {
         const { currentWordIndex } = this.props;
@@ -33,7 +33,7 @@ class VocabularyRows extends Component {
                             <td className="align-middle" id="no-border-left-top-bottom">{this.lesson.vocabulary.length * rows.row.length + rows.row.length * rowIndex}</td>
                             {rows.row.map((word, index) => (
                                 rowIndex + this.lesson.vocabulary.length * index < this.props.currentWordIndex
-                                    ? <td key={index} style={this.underline}><h1>{word.value}</h1></td>
+                                    ? <td key={index} className="underline"><h1>{word.value}</h1></td>
                                     : <td key={index}><h1>{word.value}</h1></td>
                             ))}
                         </tr>
@@ -81,7 +81,7 @@ class VocabularyRows extends Component {
                             <td className="align-middle" id="no-border-left-top-bottom">{this.lesson.vocabulary.length * rows.row.length + rows.row.length * rowIndex}</td>
                             {rows.row.map((word, index) => (
                                 index + rowIndex * rows.row.length < this.props.currentWordIndex - 31
-                                    ? <td key={index + rowIndex * rows.row.length} style={this.underline}><h1>{word.value}</h1></td>
+                                    ? <td key={index + rowIndex * rows.row.length} className="underline"><h1>{word.value}</h1></td>
                                     : <td key={index + rowIndex * rows.row.length}><h1>{word.value}</h1></td>
                             ))}
                         </tr>
@@ -89,7 +89,6 @@ class VocabularyRows extends Component {
                 </tbody>
             );
         }
-
     }
 }
 
