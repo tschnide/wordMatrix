@@ -1,6 +1,6 @@
 /* Remove Scroll Bars */
 body {
-  overflow:hidden;
+  overflow: hidden;
 }
 html, body{
   height: 100%;
@@ -9,8 +9,11 @@ html, body{
 .App {
   text-align: center;
 }
+.full-viewport-height{
+  height: 100vh;
+}
 
 /* Fix Me this is to make the app take the full height of the screen. */
-#root, #root>div{
+/* #root, #root>div{
   height: 100%;
-}
+} */

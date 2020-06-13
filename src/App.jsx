@@ -31,7 +31,11 @@ class App extends Component {
                 { id: 12, value: getLessonName(12) },
                 { id: 13, value: getLessonName(13) },
                 { id: 14, value: getLessonName(14) },
-                { id: 15, value: getLessonName(15) }
+                { id: 15, value: getLessonName(15) },
+                { id: 16, value: getLessonName(16) },
+                { id: 17, value: getLessonName(17) },
+                { id: 18, value: getLessonName(18) },
+                { id: 19, value: getLessonName(19) }
             ],
             currentButtonId: null
         };
@@ -63,7 +67,7 @@ class App extends Component {
 
     handleSpaceBarEvent(event) {
         if (event.keyCode === 32) {
-            if (this.state.secondsSinceFirstClick >= 62) {
+            if (this.state.secondsSinceFirstClick > 61) {
                 this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
             } else {
                 this.setState((state) => ({ currentWordIndex: state.currentWordIndex + 1 }));
@@ -76,7 +80,7 @@ class App extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.currentWordIndex !== this.state.currentWordIndex) {
-            if (this.state.currentWordIndex === 63) {
+            if (this.state.currentWordIndex > 61) {
                 clearInterval(this.timerInterval);
                 this.setState({ currentWordIndex: 0, secondsSinceFirstClick: 0 });
             }
@@ -92,7 +96,7 @@ class App extends Component {
         return (
             <div className="App full-height" onKeyDown={this.handleSpaceBarEvent} tabIndex="0">
                 <div className="container-fluid h-100">
-                    <div className="row h-100 align-items-center">
+                    <div className="row full-viewport-height align-items-center">
                         <LessonButtonStack
                             buttonLabels={this.state.buttonLabels}
                             onButtonClick={this.handleButtonClick}
